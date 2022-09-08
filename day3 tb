@@ -1,0 +1,46 @@
+// Code your testbench here
+// or browse Examples
+module day_3();
+    logic clk;
+    logic reset;
+    logic a_i;
+   
+    logic rising_edge;
+    logic falling_edge;
+  
+  day3 ( .clk(clk), .reset(reset), .a_i(a_i), .rising_edge(rising_edge), .falling_edge(falling_edge) );
+  
+  initial begin
+    $dumpfile("dump.vcd"); 
+    $dumpvars(1);
+  end
+  
+  initial begin
+    forever
+      #2
+    clk=~clk;
+    end
+  end
+  
+  initial begin
+    #2
+    a_i=0;
+    reset=0;'
+    
+    #2
+    a_i=0;
+    reset=1;
+    
+    #2
+    a_i=1;
+    reset=0;
+    
+    #2
+    a_i=1;
+    reset=1;
+    
+  end
+  $finish();
+endmodule
+  
+    
